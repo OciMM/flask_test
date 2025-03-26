@@ -1,0 +1,73 @@
+# Flask API с Docker, Nginx и миграциями
+
+## 1. Описание проекта
+Этот проект представляет собой API на Flask с поддержкой аутентификации пользователей, реализованное с использованием Docker и Nginx. Также включены миграции базы данных с Flask-Migrate.
+
+## 2. Установка и запуск
+
+### 2.1. Установка зависимостей
+Перед запуском проекта необходимо установить зависимости:
+```sh
+pip install -r requirements.txt
+```
+
+### 2.2. Запуск проекта без Docker
+
+```sh
+flask db upgrade  # Применение миграций
+flask run  # Запуск сервера Flask
+pytest test_api.py # Запуск тестов без докера
+```
+
+Сервер будет доступен по адресу: `http://localhost:5000`
+
+## 3. Использование Docker
+
+### 3.1. Сборка и запуск контейнеров
+
+```sh
+docker-compose up --build
+```
+
+### 3.2. Остановка контейнеров
+```sh
+docker-compose down
+```
+
+## 4. Миграции базы данных
+
+### 4.1. Создание миграции
+```sh
+flask db migrate -m "Initial migration"
+```
+
+### 4.2. Применение миграций
+```sh
+flask db upgrade
+```
+
+## 5. Тестирование API через Docker
+
+### 5.1. Запуск тестов
+
+```sh
+Запустите файл test_docker.py, в терминале будет придет ответ в формате json
+```
+
+## 6. Структура проекта
+```
+.
+├── settings/
+│   ├── config.py
+│   ├── models.py
+│   ├── routes.py
+├── app.py
+│── test_api.py
+│── test_docker.py
+├── Dockerfile
+├── docker-compose.yml
+├── nginx.conf
+├── requirements.txt
+├── README.md
+```
+
