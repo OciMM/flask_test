@@ -1,6 +1,6 @@
 import re
 from flask import Blueprint, request, jsonify, session
-from models import db, User
+from settings.models import db, User
 from flask_wtf.csrf import generate_csrf, validate_csrf
 
 api = Blueprint("api", __name__)

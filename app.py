@@ -1,7 +1,7 @@
 from flask import Flask
-from config import Config
-from models import db, bcrypt
-from routes import api
+from settings.config import Config
+from settings.models import db, bcrypt
+from settings.routes import api
 from flask_session import Session
 from flask_wtf.csrf import CSRFProtect
 
