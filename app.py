@@ -4,6 +4,7 @@ from settings.models import db, bcrypt
 from settings.routes import api
 from flask_session import Session
 from flask_wtf.csrf import CSRFProtect
+from flask_migrate import Migrate
 
 
 app = Flask(__name__)
@@ -11,6 +12,7 @@ app.config.from_object(Config)
 
 
 csrf = CSRFProtect(app) 
+migrate = Migrate(app, db) # Оставим на будущее, даже если db сейчас нет
 
 
 db.init_app(app)

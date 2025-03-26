@@ -4,3 +4,4 @@ flask_session/
 instance/
 .pytest_cache/
 cache/
+migrations/
